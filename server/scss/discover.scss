@@ -19,8 +19,10 @@
     }
 
     img {
-      height: auto;
-      width: auto;
+      height: 300px;
+      width: 300px;
+      background-color: darkgrey;
+      position: relative;
     }
   }
   &-start-similair {
@@ -45,7 +47,10 @@
           color: $white;
         }
         img {
-          width: 100%;
+          height: 218px;
+          width: 218px;
+          max-width: 100%;
+          background-color: darkgrey;
           margin-bottom: 0.3rem;
         }
       }

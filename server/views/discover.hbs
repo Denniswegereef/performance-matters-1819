@@ -11,12 +11,12 @@
   <div class="disc-start-similair" id="similair">
     <ul>
       {{#each artist.similar}}
-          <li class="artist-single">
-            <img src="{{ this.image.big }}" alt="{{ this.name }}">
-            <h2>{{this.name}}</h2>
+      <li class="artist-single">
+        <img src="{{ this.image.big }}" alt="{{ this.name }}">
+        <h2>{{this.name}}</h2>
 
-            <button type="button" value="{{ this.name }}">Choose</button>
-          </li>
+        <button type="button" value="{{ this.name }}">Choose</button>
+      </li>
       {{/each}}
     </ul>
   </div>
@@ -24,4 +24,4 @@
 
 <div id="end"></div>
 
-<script src="../js/main.js"></script>
+<script src="../js/main-min.js"></script>

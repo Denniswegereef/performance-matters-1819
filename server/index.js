@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 
 const chalk = require('chalk')
 
+var shrinkRay = require('shrink-ray')
+
 const api = require('./helpers/api.js')
 const clean = require('./helpers/clean-data.js')
 
@@ -16,12 +18,14 @@ app.use(compression())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(
-  express.static(__dirname + '/public', {
+  express.static(__dirname + '/dist', {
     maxAge: '365d',
     lastModified: '',
     etag: ''
   })
 )
+
+app.use(shrinkRay())
 
 app.engine(
   '.hbs',
