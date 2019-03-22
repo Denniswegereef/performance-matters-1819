@@ -73,3 +73,10 @@ It is significant faster to render these images, I converted them before on the 
 ##### WEBP
 
 ![webp](docs/images/webpimages.png)
+
+#### Image preview
+
+So the content doesn't spring around when the image is loaded
+
+![preview](docs/images/preview.png)
+![previewtwo](docs/images/previewtwo.png)
