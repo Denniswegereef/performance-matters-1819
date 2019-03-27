@@ -1,19 +1,14 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const shrinkRay = require('shrink-ray-current')
 
 const chalk = require('chalk')
-
-var shrinkRay = require('shrink-ray')
 
 const api = require('./helpers/api.js')
 const clean = require('./helpers/clean-data.js')
 
 const app = express()
-
-// Compress
-var compression = require('compression')
-app.use(compression())
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -25,7 +20,28 @@ app.use(
   })
 )
 
+app.get(['js/*.js', 'css/*.css'], (req, res, next) => {
+  const encoding = req.headers['accept-encoding']
+  const extensionIndex = req.originalUrl.lastIndexOf('.')
+  const extension = req.originalUrl.slice(extensionIndex)
+
+  if (encoding && encoding.includes('br')) {
+    req.url = `${req.url}.br`
+    res.set('Content-Encoding', 'br')
+  } else if (encoding && encoding.includes('gzip')) {
+    req.url = `${req.url}.gz`
+    res.set('Content-Encoding', 'gzip')
+  }
+
+  res.set('Content-Type', extension === '.js' ? 'text/javascript' : 'text/css')
+  next()
+})
+
 app.use(shrinkRay())
+
+// Compress
+var compression = require('compression')
+app.use(compression())
 
 app.engine(
   '.hbs',
