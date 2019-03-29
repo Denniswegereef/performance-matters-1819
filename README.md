@@ -108,6 +108,10 @@ As a user I wanna listen a song offline or a snipppet from a artist I found duri
 
 I learned alot for trying and using them, but since what I did is trying so many things and just doing it stuff gets sometimes messy and you need a good goal what you wanna achieve, based on the first version I have it is a big improvement.
 
+My old audit, based on the audit is was already quite fast since there was little to no content. Still I tried to update everything I possible could.
+
+![audittt](docs/images/auditssss.png)
+
 New audit
 
 ![audittwo](docs/images/audittwo.png)
